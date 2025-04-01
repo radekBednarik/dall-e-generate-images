@@ -34,6 +34,6 @@ const fetchAndSave = async (data) => {
 }
 
 (async () => {
-  const urls = await generate("create photorealistic image of dairy products on white background")
-  await fetchAndSave(urls)
+  const data = await generate("create photorealistic image of dairy products on white background")
+  await fetchAndSave(data)
 })();
