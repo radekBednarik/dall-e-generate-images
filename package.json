@@ -15,6 +15,7 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "openai": "^4.91.0",
+    "ora": "^8.2.0",
     "sharp": "^0.33.5"
   },
   "devDependencies": {

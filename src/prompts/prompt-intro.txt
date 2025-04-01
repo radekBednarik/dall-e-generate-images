@@ -3,5 +3,7 @@ food. These photos are to be used on websites, ad boards, etc.
 
 Photos must be eye pleasing, vivid and without any blemishes.
 
+Items in the photo must be always in the centre of the photo.
+
 Given these preconditions, please generate:
 
