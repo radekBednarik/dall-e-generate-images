@@ -1,3 +1,4 @@
 node_modules
 downloaded_images
 .env
+.dist
