@@ -5,7 +5,7 @@ import { readFileAsync, saveImages } from "./io/io.js";
   const promptIntro = await readFileAsync("src/prompts/prompt-intro.txt");
   const data = await generate(
     `${promptIntro}\n
-    create image of dairy products on white background`,
+    image of dairy products on white background`,
   );
 
   await saveImages(data, "png");
