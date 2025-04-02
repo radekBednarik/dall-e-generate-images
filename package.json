@@ -17,7 +17,8 @@
     "dotenv": "^16.4.7",
     "openai": "^4.91.0",
     "ora": "^8.2.0",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",

@@ -23,6 +23,9 @@ importers:
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
+      uuid:
+        specifier: ^11.1.0
+        version: 11.1.0
     devDependencies:
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^5.2.2
@@ -855,6 +858,10 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
+    hasBin: true
+
   web-streams-polyfill@4.0.0-beta.3:
     resolution: {integrity: sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug==}
     engines: {node: '>= 14'}
@@ -1587,6 +1594,8 @@ snapshots:
   typescript@5.8.2: {}
 
   undici-types@5.26.5: {}
+
+  uuid@11.1.0: {}
 
   web-streams-polyfill@4.0.0-beta.3: {}
 
