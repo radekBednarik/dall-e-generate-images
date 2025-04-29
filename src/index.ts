@@ -4,6 +4,7 @@ import { input } from "@inquirer/prompts";
 
 (async () => {
   const promptIntro = await readFileAsync("src/prompts/prompt-intro.txt");
+
   while (true) {
     try {
       const prompt = await input({
