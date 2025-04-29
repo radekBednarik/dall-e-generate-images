@@ -43,3 +43,8 @@ pnpm go
 ## Downloaded images
 
 - these are stored in `./downloaded_images/` by default but you can override that.
+
+## Tested on
+
+- Linux Ubuntu LTS
+- MacOS Sequoia
