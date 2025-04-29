@@ -1,9 +1,14 @@
 import { generate } from "./generators/images.js";
 import { readFileAsync, saveImages } from "./io/io.js";
 import { input, select } from "@inquirer/prompts";
+import prexit from "prexit";
 import terminalLink from "terminal-link";
 
 (async () => {
+  prexit(() => {
+    console.log("\nApplication terminated by user.");
+  });
+
   const promptIntro = await readFileAsync("src/prompts/prompt-intro.txt");
 
   const howMany = await input({
@@ -79,7 +84,7 @@ import terminalLink from "terminal-link";
 
       if (data) {
         const terminalLinkPaths = (
-          await saveImages(data, storagePath, picsFormat)
+          await saveImages(prompt, data, storagePath, picsFormat)
         ).map((link) => terminalLink(link, `file://${link}`));
 
         console.log(

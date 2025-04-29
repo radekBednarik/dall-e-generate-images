@@ -20,6 +20,9 @@ importers:
       ora:
         specifier: ^8.2.0
         version: 8.2.0
+      prexit:
+        specifier: ^2.3.0
+        version: 2.3.0
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -800,6 +803,10 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prexit@2.3.0:
+    resolution: {integrity: sha512-mX+LIbtS0anKtl2PykYabxninwloblUQMRO6CubeSmjxb+kKlATuJoH9UeN8NLE4TgIEFWfBXw7V3GkWbBrSmg==}
+    engines: {node: '>=12'}
+
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
 
@@ -1542,6 +1549,8 @@ snapshots:
   picocolors@1.1.1: {}
 
   prettier@3.5.3: {}
+
+  prexit@2.3.0: {}
 
   resolve-pkg-maps@1.0.0: {}
 

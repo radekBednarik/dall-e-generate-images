@@ -1,7 +1,6 @@
 import { mkdir, readFile, writeFile } from "fs/promises";
-import { dirname, resolve } from "path";
+import { resolve } from "path";
 import sharp from "sharp";
-import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";
 
 export const readFileAsync = async (filePath: string) => {
@@ -9,6 +8,7 @@ export const readFileAsync = async (filePath: string) => {
 };
 
 export const saveImages = async (
+  prompt: string,
   data: (string | undefined)[],
   storagePath: string,
   format: "png" | "jpeg" | "webp" = "png",
@@ -24,7 +24,7 @@ export const saveImages = async (
       const base64String = d.replace(/^data:image\/\w+;base64,/, "");
       const buffer = Buffer.from(base64String, "base64");
       const imgBuffer = await sharp(buffer).toFormat(`${format}`).toBuffer();
-      const filepath = `${_storagePath}/image_${i}_${uuidv4()}.${format}`;
+      const filepath = `${_storagePath}/image_${prompt.substring(0, 10)}_${i}_${uuidv4()}.${format}`;
 
       await writeFile(filepath, imgBuffer);
 
