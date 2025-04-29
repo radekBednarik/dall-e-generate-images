@@ -24,7 +24,7 @@ export const saveImages = async (
       const base64String = d.replace(/^data:image\/\w+;base64,/, "");
       const buffer = Buffer.from(base64String, "base64");
       const imgBuffer = await sharp(buffer).toFormat(`${format}`).toBuffer();
-      const filepath = `${_storagePath}/image_${prompt.substring(0, 10)}_${i}_${uuidv4()}.${format}`;
+      const filepath = `${_storagePath}/image_${prompt.replaceAll(" ", "_").substring(0, 10)}_${i}_${uuidv4()}.${format}`;
 
       await writeFile(filepath, imgBuffer);
 
