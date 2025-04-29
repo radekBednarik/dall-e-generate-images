@@ -10,9 +10,10 @@ export const readFileAsync = async (filePath: string) => {
 
 export const saveImages = async (
   data: (string | undefined)[],
+  storagePath: string,
   format: "png" | "jpeg" | "webp" = "png",
 ) => {
-  const storagePath = resolvePath("../../downloaded_images");
+  const _storagePath = resolvePath(storagePath);
 
   await mkdir(storagePath, { recursive: true });
 
@@ -23,7 +24,7 @@ export const saveImages = async (
       const base64String = d.replace(/^data:image\/\w+;base64,/, "");
       const buffer = Buffer.from(base64String, "base64");
       const imgBuffer = await sharp(buffer).toFormat(`${format}`).toBuffer();
-      const filepath = `${storagePath}/image_${i}_${uuidv4()}.${format}`;
+      const filepath = `${_storagePath}/image_${i}_${uuidv4()}.${format}`;
 
       await writeFile(filepath, imgBuffer);
 
@@ -37,8 +38,5 @@ export const saveImages = async (
 };
 
 function resolvePath(path: string) {
-  const filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(filename);
-
-  return resolve(__dirname, path);
+  return resolve(process.cwd(), path);
 }

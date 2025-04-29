@@ -49,6 +49,12 @@ import terminalLink from "terminal-link";
     ],
   })) as "webp" | "png" | "jpeg";
 
+  const storagePath = await input({
+    message:
+      "Enter the path to save the images. Provide either absolute path or relative to the current working directory:",
+    default: "downloaded_images",
+  });
+
   while (true) {
     try {
       const prompt = await input({
@@ -60,6 +66,11 @@ import terminalLink from "terminal-link";
         break;
       }
 
+      if (prompt.length === 0) {
+        console.error("Prompt cannot be empty.");
+        continue;
+      }
+
       const data = await generate(
         `${promptIntro}\n${prompt}`,
         howManyNumber,
@@ -67,9 +78,9 @@ import terminalLink from "terminal-link";
       );
 
       if (data) {
-        const terminalLinkPaths = (await saveImages(data, picsFormat)).map(
-          (link) => terminalLink(link, `file://${link}`),
-        );
+        const terminalLinkPaths = (
+          await saveImages(data, storagePath, picsFormat)
+        ).map((link) => terminalLink(link, `file://${link}`));
 
         console.log(
           "Images saved successfully to:\n",
