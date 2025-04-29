@@ -42,4 +42,4 @@ pnpm go
 
 ## Downloaded images
 
-- these are stored in `./downloaded_images/` folder
+- these are stored in `./downloaded_images/` by default but you can override that.
