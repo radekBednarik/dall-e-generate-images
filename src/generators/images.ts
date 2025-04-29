@@ -10,15 +10,16 @@ export const generate = async (prompt: string, howMany = 1) => {
   const spinner = ora("Generating images...").start();
 
   const response = await openai.images.generate({
-    model: "dall-e-3",
+    model: "gpt-image-1",
     prompt,
     n: howMany,
     size: "1024x1024",
-    style: "natural",
-    response_format: "b64_json",
+    output_format: "png",
+    quality: "high",
+    moderation: "low",
   });
 
   spinner.stop();
 
-  return response.data.map((image) => image.b64_json);
+  return response?.data?.map((image) => image.b64_json);
 };
