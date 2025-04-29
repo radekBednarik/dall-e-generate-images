@@ -1,6 +1,7 @@
 import { generate } from "./generators/images.js";
 import { readFileAsync, saveImages } from "./io/io.js";
 import { input, select } from "@inquirer/prompts";
+import terminalLink from "terminal-link";
 
 (async () => {
   const promptIntro = await readFileAsync("src/prompts/prompt-intro.txt");
@@ -66,11 +67,13 @@ import { input, select } from "@inquirer/prompts";
       );
 
       if (data) {
-        const filepaths = await saveImages(data, picsFormat);
+        const terminalLinkPaths = (await saveImages(data, picsFormat)).map(
+          (link) => terminalLink(link, `file://${link}`),
+        );
 
         console.log(
           "Images saved successfully to:\n",
-          filepaths.join("\n"),
+          terminalLinkPaths.join("\n"),
           "\n",
         );
       } else {
