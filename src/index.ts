@@ -19,7 +19,7 @@ import { input } from "@inquirer/prompts";
       const data = await generate(`${promptIntro}\n${prompt}`);
 
       if (data) {
-        const filepaths = await saveImages(data, "png");
+        const filepaths = await saveImages(data);
 
         console.log("Images saved successfully to:\n", filepaths.join("\n"));
       } else {

@@ -10,7 +10,7 @@ export const readFileAsync = async (filePath: string) => {
 
 export const saveImages = async (
   data: (string | undefined)[],
-  format: "png" | "jpeg" | "webp",
+  format: "png" | "jpeg" | "webp" = "png",
 ) => {
   const storagePath = resolvePath("../../downloaded_images");
 
