@@ -11,7 +11,7 @@
 - clone repo:
 
 ```bash
-git clone git@github.com:radekBednarik/dall-e-generate-images.git
+git clone git@github.com:radekBednarik/gpt-image-model-cli-generator.git
 ```
 
 - run command in the root of the project:
