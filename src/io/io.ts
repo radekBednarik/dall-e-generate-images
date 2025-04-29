@@ -16,18 +16,24 @@ export const saveImages = async (
 
   await mkdir(storagePath, { recursive: true });
 
-  data.forEach(async (d, i) => {
+  const filepaths: string[] = [];
+
+  const promises = data.map(async (d, i) => {
     if (d) {
       const base64String = d.replace(/^data:image\/\w+;base64,/, "");
       const buffer = Buffer.from(base64String, "base64");
       const imgBuffer = await sharp(buffer).toFormat(`${format}`).toBuffer();
+      const filepath = `${storagePath}/image_${i}_${uuidv4()}.${format}`;
 
-      await writeFile(
-        `${storagePath}/image_${i}_${uuidv4()}.${format}`,
-        imgBuffer,
-      );
+      await writeFile(filepath, imgBuffer);
+
+      filepaths.push(filepath);
     }
   });
+
+  await Promise.all(promises);
+
+  return filepaths;
 };
 
 function resolvePath(path: string) {
