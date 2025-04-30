@@ -2,3 +2,4 @@ node_modules
 downloaded_images
 .env
 .dist
+.DS_Store
