@@ -40,6 +40,24 @@ And of course, you will pay for the usage of the API, so prepare your card :)
 pnpm go
 ```
 
+## Compilation to exe3cutable
+
+If you have [bun](https://bun.sh) installed, you can easily compile the code
+to standalone application, that will not need
+a Node.js runtime.
+
+I have tested this on macOS/Linux.
+
+```bash
+bun build ./src/index.ts --compile --outfile=gptcli
+```
+
+Then just run it:
+
+```bash
+./gptcli
+```
+
 ## Downloaded images
 
 - these are stored in `./downloaded_images/` by default but you can override that.
@@ -48,3 +66,7 @@ pnpm go
 
 - Linux Ubuntu LTS
 - MacOS Sequoia
+
+```
+
+```

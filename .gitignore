@@ -3,3 +3,4 @@ downloaded_images
 .env
 .dist
 .DS_Store
+gptcli
