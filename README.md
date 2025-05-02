@@ -49,6 +49,7 @@ a Node.js runtime.
 I have tested this on macOS/Linux.
 
 ```bash
+bun install
 bun build ./src/index.ts --compile --outfile=gptcli
 ```
 
