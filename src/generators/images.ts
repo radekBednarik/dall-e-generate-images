@@ -8,19 +8,27 @@ const openai = new OpenAI({
 
 export const generate = async (
   prompt: string,
-  howMany = 1,
-  output_format: "png" | "webp" | "jpeg" = "png",
+  background: "transparent" | "opaque" | "auto",
+  model: string = "gpt-image-1",
+  moderation: "auto" | "low" | null,
+  n: number | null,
+  output_compression: number | null,
+  output_format: "png" | "webp" | "jpeg",
+  quality: "auto" | "low" | "medium" | "high",
+  size: "auto" | "1024x1024" | "1536x1024" | "1024x1536",
 ) => {
   const spinner = ora("Generating images...").start();
 
   const response = await openai.images.generate({
-    model: "gpt-image-1",
     prompt,
+    background,
+    model,
+    moderation,
+    n,
+    output_compression,
     output_format,
-    n: howMany,
-    size: "1024x1024",
-    quality: "high",
-    moderation: "low",
+    quality,
+    size,
   });
 
   spinner.stop();
