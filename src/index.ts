@@ -1,6 +1,6 @@
 import { getModelOpts, getPrompt } from "./cli/prompts.js";
 import { generate } from "./generators/images.js";
-import { readFileAsync, saveImages } from "./io/io.js";
+import { saveImages } from "./io/io.js";
 import prexit from "prexit";
 import terminalLink from "terminal-link";
 
@@ -9,7 +9,6 @@ import terminalLink from "terminal-link";
     console.log("\nApplication terminated.");
   });
 
-  const promptIntro = await readFileAsync("src/prompts/prompt-intro.txt");
   const modelOpts = await getModelOpts();
 
   while (true) {
@@ -27,7 +26,7 @@ import terminalLink from "terminal-link";
       }
 
       const data = await generate(
-        `${promptIntro}\n${prompt}`,
+        prompt,
         modelOpts.background,
         "gpt-image-1",
         modelOpts.moderation,
