@@ -1,6 +1,6 @@
 node_modules
 downloaded_images
 .env
-.dist
+dist
 .DS_Store
 gptcli
