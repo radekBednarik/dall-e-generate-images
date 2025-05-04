@@ -2,8 +2,7 @@ import { input, select } from "@inquirer/prompts";
 
 const howMany = async () => {
   const howMany = await input({
-    message:
-      "How many pictures do you want to generate? Provide 1 - 10. This will apply for all subsequent prompts.",
+    message: "How many pictures do you want to generate? Provide 1 - 10.",
     default: "1",
   });
 
@@ -47,8 +46,7 @@ const picsFormat = async (background: "auto" | "transparent" | "opaque") => {
     });
   }
   return (await select({
-    message:
-      "Select the image format. This will apply for all subsequent prompts.",
+    message: "Select the image format.",
     default: "png",
     choices,
   })) as "webp" | "png" | "jpeg";
@@ -114,12 +112,14 @@ const compression = async (picsFormat: "webp" | "jpeg" | "png") => {
 
     if (!isNumber) {
       console.error("Invalid input. Please enter a valid number.");
-      return null;
+      return compression(picsFormat);
     }
 
     if (numberValue < 0 || numberValue > 100) {
-      console.error("Invalid input. Please enter a number between 0 and 100.");
-      return null;
+      console.error(
+        "Invalid input. Please enter a number between 0 and 100 inclusive.",
+      );
+      return compression(picsFormat);
     }
 
     return numberValue;
