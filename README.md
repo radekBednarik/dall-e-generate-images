@@ -40,17 +40,16 @@ And of course, you will pay for the usage of the API, so prepare your card :)
 pnpm go
 ```
 
-## Compilation to exe3cutable
+## Compilation to executable
 
 If you have [bun](https://bun.sh) installed, you can easily compile the code
-to standalone application, that will not need
-a Node.js runtime.
+to standalone application.
 
 I have tested this on macOS/Linux.
 
 ```bash
 bun install
-bun build ./src/index.ts --compile --outfile=gptcli
+pnpm build
 ```
 
 Then just run it:
