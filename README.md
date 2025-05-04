@@ -58,9 +58,17 @@ Then just run it:
 ./gptcli
 ```
 
+You can move the executable to have it wherever you want. When you run it, do
+not forget to prepend ENV variable with your API key, like this:
+
+```bash
+API_KEY=your_openai_api_key ./gptcli
+```
+
 ## Downloaded images
 
-- these are stored in `./downloaded_images/` by default but you can override that.
+- these are stored in `./downloaded_images/` relative to current working
+  directory by default but you can override that.
 
 ## Tested on
 
