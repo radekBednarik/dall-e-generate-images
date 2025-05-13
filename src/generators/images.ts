@@ -45,7 +45,7 @@ export const edit = async (
   model: string = "gpt-image-1",
   n: number | null = 1,
   quality: "high" | "medium" | "low" | "auto" | null = "auto",
-  size: "1024x1024" | "1536x1024" | "1024x1536" | "auto" = "auto",
+  size: "1024x1024" | "1536x1024" | "1024x1536" | "auto" | null = "auto",
 ) => {
   const spinner = ora("Editing image...").start();
 
