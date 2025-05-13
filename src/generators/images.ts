@@ -1,5 +1,6 @@
 import "dotenv/config";
 import OpenAI from "openai";
+import { type Uploadable } from "openai/uploads.mjs";
 import ora from "ora";
 
 const openai = new OpenAI({
@@ -28,6 +29,35 @@ export const generate = async (
     output_compression,
     output_format,
     quality,
+    size,
+  });
+
+  spinner.stop();
+
+  return response?.data?.map((image) => image.b64_json);
+};
+
+export const edit = async (
+  image: Uploadable | Uploadable[],
+  prompt: string,
+  background: "transparent" | "opaque" | "auto" | null = "auto",
+  mask: Uploadable | undefined,
+  model: string = "gpt-image-1",
+  n: number | null = 1,
+  quality: "high" | "medium" | "low" | "auto" | null = "auto",
+  size: "1024x1024" | "1536x1024" | "1024x1536" | "auto" = "auto",
+) => {
+  const spinner = ora("Editing image...").start();
+
+  const response = await openai.images.edit({
+    image,
+    prompt,
+    background,
+    mask,
+    model,
+    n,
+    quality,
+    // @ts-expect-error broken types of openai api
     size,
   });
 
