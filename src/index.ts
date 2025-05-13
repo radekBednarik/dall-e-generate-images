@@ -1,5 +1,5 @@
 import { getModelOpts, getPrompt } from "./cli/prompts.js";
-import { generate } from "./generators/images.js";
+import { edit, generate } from "./generators/images.js";
 import { saveImages } from "./io/io.js";
 import prexit from "prexit";
 import terminalLink from "terminal-link";
